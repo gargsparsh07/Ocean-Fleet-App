@@ -8,15 +8,24 @@ public class VesselUtil {
 
     private List<Vessel> vesselList = new ArrayList<>();
 
-    public List<Vessel> getVesselList() {
-        return vesselList;
-    }
-
-    public void setVesselList(List<Vessel> vesselList) {
-        this.vesselList = vesselList;
-    }
-
+    // UC2: Add vessel details
     public void addVesselPerformance(Vessel vessel) {
         vesselList.add(vessel);
     }
+
+    // UC3: Search vessel by vesselId
+    public Vessel getVesselById(String vesselId) {
+
+        for (Vessel vessel : vesselList) {
+            if (vessel.getVesselId().equalsIgnoreCase(vesselId)) {
+                return vessel;
+            }
+        }
+        return null;
+    }
+
+    public List<Vessel> getVesselList() {
+        return vesselList;
+    }
 }
+
